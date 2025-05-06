@@ -1,0 +1,46 @@
+-- Create tables
+
+CREATE TABLE IF NOT EXISTS student (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    usn TEXT,
+    name TEXT,
+    email TEXT UNIQUE,
+    phone TEXT,
+    password TEXT,
+    role TEXT
+);
+
+CREATE TABLE IF NOT EXISTS admin (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    email TEXT UNIQUE,
+    phone TEXT,
+    password TEXT,
+    role TEXT
+);
+
+CREATE TABLE IF NOT EXISTS attendance (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    email TEXT,
+    date TEXT,
+    status TEXT
+);
+
+CREATE TABLE IF NOT EXISTS guest_invite (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    student_email TEXT,
+    guest_name TEXT,
+    visit_date TEXT,
+    invite_code TEXT UNIQUE
+);
+
+-- Insert sample data
+
+INSERT INTO student (usn, name, email, phone, password, role) VALUES
+('4NI23CI122', 'Vikram A', '2023ci_vikrama_b@nie.ac.in', '8217384839', 'vikram@123', 'student'),
+('4NI23CI125', 'Yashas Gowda S H', '2023ci_yashasgowdash_b@nie.ac.in', '8073270735', 'yashas@123', 'student'),
+('4NI24CI409', 'Syed Mohammed Rayaan', '2024lci_syedmohammedrayaaan_b@nie.ac.in', '9972828638', 'rayaan@123', 'student'),
+('4NI24CI407', 'Mohammed Zaid', '2024lcimohammedzaid_b@nie.ac.in', '7676053109', 'zaid@123', 'student');
+
+INSERT INTO admin (name, email, phone, password, role) VALUES
+('Admin User', 'admin@hostel.com', '9999999999', 'admin@123', 'admin');
